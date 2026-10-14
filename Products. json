@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "name": "7 CM Electric Sparklers",
+    "price": 73,
+    "category": "Sparklers",
+    "image": "images/sparkler.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Flower Pots Big",
+    "price": 52,
+    "category": "Flower Pots",
+    "image": "images/flowerpot.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Rocket Bomb",
+    "price": 75,
+    "category": "Rockets",
+    "image": "images/rocket.jpg"
+  }
+]
+  
+]

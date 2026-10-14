@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Us - Sivakasi Pattasu</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>📞 Contact Us</h1>
+
+<nav>
+
+<a href="index.html">🏠 Home</a>
+
+<a href="products.html">🛍 Products</a>
+
+<a href="cart.html">🛒 Cart (<span id="cartCount">0</span>)</a>
+
+<a href="contact.html">📞 Contact</a>
+
+</nav>
+
+</header>
+
+<section class="contact">
+
+<h2>Contact Us</h2>
+
+<p>🏪 <b>Sivakasi Pattasu</b></p>
+
+<p>📱 WhatsApp : 8220216784</p>
+
+<p>📞 Mobile : 8220216784</p>
+
+<p>📧 Email : info@sivakasipattasu.in</p>
+
+<p>📍 Tiruvannamalai, Tamil Nadu</p>
+
+<a href="https://wa.me/918220216784" class="btn">
+💬 Order on WhatsApp
+</a>
+
+</section>
+
+<a href="https://wa.me/918220216784" class="btn">
+💬 Chat on WhatsApp
+</a>
+
+</section>
+
+<footer>
+
+<p>© 2026 Sivakasi Pattasu</p>
+
+</footer>
+
+<script src="js/header.js"></script>
+
+</body>
+</html>
