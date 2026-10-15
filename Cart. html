@@ -22,7 +22,8 @@
 
 <a href="products.html">Products</a>
 
-<a href="cart.html">
+<a href="./Cart.html">Cart</a>
+
 🛒 Cart (<span id="cartCount">0</span>)
 </a>
 
