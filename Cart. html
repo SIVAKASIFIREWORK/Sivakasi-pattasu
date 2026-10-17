@@ -18,9 +18,9 @@
 
 <nav>
 
-<a href="index.html">Home</a>
+<a href="./index.html">Home</a>
 
-<a href="products.html">Products</a>
+<a href="./Products.html">Products</a>
 
 <a href="./Cart.html">Cart</a>
 
