@@ -18,19 +18,19 @@
 
 <nav>
 
-<a href="index.html">🏠 Home</a>
+<a href="./index.html">🏠 Home</a>
 
-<a href="products.html">🛍 Products</a>
+<a href="./Products.html">🛍 Products</a>
 
-<a href="cart.html">🛒 Cart (<span id="cartCount">0</span>)</a>
+<a href="./Cart.html">🛒 Cart (<span id="cartCount">0</span>)</a>
 
-<a href="contact.html">📞 Contact</a>
+<a href="./Contact.html">📞 Contact</a>
 
 </nav>
 
 </header>
 
-<section class="contact">
+<section class="Contact">
 
 <h2>Contact Us</h2>
 
