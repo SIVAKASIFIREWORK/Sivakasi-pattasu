@@ -1,18 +1,5 @@
 let products = [];
 
-// Load Products from JSON
-fetch("data/products.json")
-.then(response => response.json())
-.then(data => {
-    products = data;
-    displayProducts(products);
-});
-
-// Display Products
-function displayProducts(productList){
-
-    let html = "";
-
     productList.forEach(product => {
 
         html += `
@@ -36,10 +23,10 @@ function displayProducts(productList){
     });
 
     document.getElementById("products").innerHTML = html;
-}
+
 
 // Add to Cart
-function addToCart 
+
 const products = [
 
 {
@@ -617,10 +604,19 @@ price:2200,
 category:"Gift Box",
 image:"images/festival-mega-gift-box.jpg"
 }
-];products.find(p => p.id === id);
+];
+
+// Add to Cart
+function addToCart(id){
+
+    const product = products.find(p => p.id === id);
+
+    if(!product){
+        alert("Product not found!");
+        return;
+    }
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
     const existing = cart.find(item => item.id === id);
 
     if(existing){
@@ -665,5 +661,7 @@ function filterProducts(){
         product.category === category
     );
 
-    displayProducts(filtered);
+    displayProducts(filtered)
 }
+
+displayProducts(products);
