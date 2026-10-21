@@ -1,4 +1,4 @@
-let products = [];
+
 
 // Display Products
 function displayProducts(productList){
@@ -27,7 +27,7 @@ function displayProducts(productList){
     });
 
     document.getElementById("products").innerHTML = html;
-
+    }
 
 // Add to Cart
 
