@@ -1,5 +1,9 @@
 let products = [];
 
+// Display Products
+function displayProducts(productList){
+    let html = "";
+
     productList.forEach(product => {
 
         html += `
