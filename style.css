@@ -35,8 +35,7 @@ nav a{
 
 .hero p{
     font-size:18px;
-    color:#.
-}
+    color:#55
 }
 
 .hero button{
@@ -123,6 +122,9 @@ nav a{
     line-height:1.8;
     color:#555;
 }
+
+.product-image{
+    width:100%;
     height:180px;
     object-fit:cover;
     border-radius:10px;
