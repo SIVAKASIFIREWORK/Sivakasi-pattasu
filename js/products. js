@@ -186,8 +186,7 @@ name:"Ground Chakkar Deluxe",
 price:140,
 category:"Chakkars",
 image:"images/ground-chakkar-deluxe.jpg"
-}
-,
+},
 {
 id:21,
 name:"1½ Feet 7 Star",
@@ -665,7 +664,7 @@ function filterProducts(){
         product.category === category
     );
 
-    displayProducts(filtered)
+    displayProducts(filtered);
 }
 
 displayProducts(products);
