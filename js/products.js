@@ -610,21 +610,22 @@ image:"images/festival-mega-gift-box.jpg"
 ];
 
 // Add to Cart
-function addToCart(id){
+function addToCart(id) {
 
     const product = products.find(p => p.id === id);
 
-    if(!product){
+    if (!product) {
         alert("Product not found!");
         return;
     }
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
     const existing = cart.find(item => item.id === id);
 
-    if(existing){
-        existing.qty++;
-    }else{
+    if (existing) {
+        existing.qty = (existing.qty || 1) + 1;
+    } else {
         cart.push({
             id: product.id,
             name: product.name,
@@ -633,7 +634,20 @@ function addToCart(id){
         });
     }
 
+    // Save cart
     localStorage.setItem("cart", JSON.stringify(cart));
+
+    // Update cart count immediately
+    const cartCount = document.getElementById("cartCount");
+
+    if (cartCount) {
+        const count = cart.reduce(
+            (total, item) => total + (item.qty || 1),
+            0
+        );
+
+        cartCount.textContent = count;
+    }
 
     alert(product.name + " Added to Cart");
 }
