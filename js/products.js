@@ -684,3 +684,16 @@ function filterProducts(){
 }
 
 displayProducts(products);
+
+// Open product image
+function openImage(imageSrc, productName) {
+    const viewer = document.getElementById("imageViewer");
+    const preview = document.getElementById("previewImage");
+    const title = document.getElementById("previewTitle");
+
+    preview.src = imageSrc;
+    preview.alt = productName;
+    title.textContent = productName;
+
+    viewer.style.display = "flex";
+            }
