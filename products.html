@@ -49,5 +49,28 @@ onkeyup="searchProducts()">
   <script>
 console.log("Products page loaded");
   </script>
+  
+  <!-- Product Image Preview -->
+<div id="imageViewer"
+     style="display:none; position:fixed; inset:0;
+     background:rgba(0,0,0,0.85); z-index:9999;
+     justify-content:center; align-items:center;
+     flex-direction:column; padding:20px;">
+
+    <button
+        onclick="document.getElementById('imageViewer').style.display='none'"
+        style="position:absolute; top:20px; right:20px;
+        font-size:28px; padding:5px 15px; cursor:pointer;">
+        ✕
+    </button>
+
+    <h3 id="previewTitle" style="color:white;"></h3>
+
+    <img id="previewImage" src="" alt=""
+         style="max-width:90%; max-height:75vh;
+         object-fit:contain;">
+
+</div>
+  
 </body>
 </html>
