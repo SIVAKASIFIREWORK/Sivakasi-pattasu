@@ -1,15 +1,18 @@
-
-
 // Display Products
-function displayProducts(productList){
+function displayProducts(productList) {
     let html = "";
 
     productList.forEach(product => {
-
         html += `
         <div class="product-card">
 
-            <img src="${product.image}" alt="${product.name}" class="product-image">
+            <img
+                src="${product.image}"
+                alt="${product.name}"
+                class="product-image"
+                onclick="openImage('${product.image}', '${product.name}')"
+                style="cursor: pointer;"
+            >
 
             <h3>${product.name}</h3>
 
@@ -23,11 +26,10 @@ function displayProducts(productList){
 
         </div>
         `;
-
     });
 
     document.getElementById("products").innerHTML = html;
-    }
+}
 
 // Add to Cart
 
