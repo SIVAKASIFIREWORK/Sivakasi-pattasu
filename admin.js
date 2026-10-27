@@ -121,4 +121,6 @@ function updateProduct(key){
 }
 
 
-loadProducts();
+window.onload = function(){
+    loadProducts();
+};
