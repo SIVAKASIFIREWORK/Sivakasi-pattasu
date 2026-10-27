@@ -672,7 +672,7 @@ function filterProducts(){
     const category = document.getElementById("categoryFilter").value;
 
     if(category === "All"){
-        displayProducts(products);
+        displayProducts(window.products);
         return;
     }
 
@@ -697,3 +697,17 @@ function openImage(imageSrc, productName) {
 
     viewer.style.display = "flex";
             }
+db.ref("products").once("value")
+.then((snapshot) => {
+
+    const data = snapshot.val();
+
+    if (data) {
+        window.products = Object.values(data);
+        displayProducts(window.products);
+    }
+
+})
+.catch((error) => {
+    console.error(error);
+});
