@@ -33,8 +33,8 @@ function displayProducts(productList) {
 
 // Add to Cart
 
-const products = [
-
+window.products = [
+    
 {
 id:1,
 name:"7 CM Electric Sparklers",
@@ -614,8 +614,8 @@ image:"images/festival-mega-gift-box.jpg"
 // Add to Cart
 function addToCart(id) {
 
-    const product = products.find(p => p.id === id);
-
+const product = window.products.find(p => p.id === id);
+    
     if (!product) {
         alert("Product not found!");
         return;
@@ -659,7 +659,7 @@ function searchProducts(){
 
     const input = document.getElementById("searchBox").value.toLowerCase();
 
-    const filtered = products.filter(product =>
+    const filtered = window.products.filter(product =>
         product.name.toLowerCase().includes(input)
     );
 
@@ -676,14 +676,14 @@ function filterProducts(){
         return;
     }
 
-    const filtered = products.filter(product =>
+    const filtered = window.products.filter(product =>
         product.category === category
     );
 
     displayProducts(filtered);
 }
 
-displayProducts(products);
+displayProducts(window.products);
 
 // Open product image
 function openImage(imageSrc, productName) {
