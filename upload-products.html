@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload Products</title>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+<script src="js/firebase.js"></script>
+<script src="js/products.js"></script>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+padding:20px;
+background:#f5f5f5;
+}
+
+h1{
+color:#d32f2f;
+}
+
+button{
+padding:12px 20px;
+font-size:18px;
+background:#d32f2f;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#b71c1c;
+}
+
+#status{
+margin-top:20px;
+font-size:18px;
+font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Upload Products To Firebase</h1>
+
+<p>
+இந்த Page-ஐ ஒரே ஒரு முறை மட்டும் பயன்படுத்த வேண்டும்.
+</p>
+
+<button id="uploadBtn">
+Upload 80 Products
+</button>
+
+<div id="status"></div>
+
+<div id="products" style="display:none;"></div>
+  
+<script>
+const db = firebase.database();
+
+document.getElementById("uploadBtn").addEventListener("click", function () {
+
+    if (typeof window.products === "undefined") {
+        document.getElementById("status").innerHTML =
+            "❌ products.js load ஆகவில்லை.";
+        return;
+    }
+
+    document.getElementById("status").innerHTML =
+        "⏳ Uploading Products...";
+
+    db.ref("products").set(window.products)
+        .then(() => {
+            document.getElementById("status").innerHTML =
+                "✅ 80 Products Uploaded Successfully!";
+        })
+        .catch((error) => {
+            document.getElementById("status").innerHTML =
+                "❌ Error : " + error.message;
+        });
+
+});
+</script>
+  
+console.log("Upload Products Page Loaded");
+console.log(window.products);
+</script>
+  
+</body>
+</html>
