@@ -30,6 +30,7 @@ function displayProducts(productList) {
 
     document.getElementById("products").innerHTML = html;
 }
+const db = firebase.database();
 
 // Add to Cart
 
@@ -683,8 +684,6 @@ function filterProducts(){
     displayProducts(filtered);
 }
 
-displayProducts(window.products);
-
 // Open product image
 function openImage(imageSrc, productName) {
     const viewer = document.getElementById("imageViewer");
@@ -696,7 +695,7 @@ function openImage(imageSrc, productName) {
     title.textContent = productName;
 
     viewer.style.display = "flex";
-            }
+  }
 db.ref("products").once("value")
 .then((snapshot) => {
 
