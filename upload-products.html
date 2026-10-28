@@ -74,7 +74,7 @@ document.getElementById("uploadBtn").addEventListener("click", function () {
     document.getElementById("status").innerHTML =
         "⏳ Uploading Products...";
 
-    db.ref("products").set(window.products)
+   firebase.database().ref("products").set(window.products)
         .then(() => {
             document.getElementById("status").innerHTML =
                 "✅ 80 Products Uploaded Successfully!";
