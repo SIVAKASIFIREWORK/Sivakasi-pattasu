@@ -30,7 +30,6 @@ function displayProducts(productList) {
 
     document.getElementById("products").innerHTML = html;
 }
-const db = firebase.database();
 
 // Add to Cart
 
