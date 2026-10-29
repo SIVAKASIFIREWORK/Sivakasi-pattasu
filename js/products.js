@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
     products.forEach(p => {
       target.innerHTML += `
         <div style="border:1px solid #ddd; border-radius:10px; padding:10px; text-align:center; background:white;">
-          <img src="${p.image}" alt="${p.name}" style="width:100%; height:150px; object-fit:cover; border-radius:8px;">
+          <img src="${p.image}" onerror="this.src='https://via.placeholder.com/300x300.png?text=${p.name}'" style="width:100%; height:120px; object-fit:contain;">
           <h4 style="margin:10px 0 5px 0;">${p.name}</h4>
           <p style="color:#666; font-size:13px;">${p.content}</p>
           <p><span style="color:green; font-weight:bold; font-size:18px;">Rs. ${p.price}</span> <span style="text-decoration:line-through; color:#999;">Rs. ${p.originalPrice}</span></p>
