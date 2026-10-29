@@ -24,6 +24,7 @@ document.getElementById("uploadBtn").addEventListener("click", function(){
     const obj = {};
     window.productsData.forEach(p => { obj[p.id] = p; });
     
+    alert(window.products.length);
     firebase.database().ref("products").set(obj)
     .then(()=> status.innerHTML = "✅ 80 Products Uploaded! products.html check பண்ணுங்க")
     .catch(e=> status.innerHTML = "❌ "+e.message);
