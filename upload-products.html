@@ -1,97 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Debug Upload</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width">
+<title>Upload Products</title>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-<style>
-body{font-family:Arial;padding:20px;background:#111;color:#fff;}
-button{padding:15px 25px;font-size:18px;background:#d32f2f;color:white;border:none;border-radius:8px;cursor:pointer;}
-#log{margin-top:20px;background:#222;padding:15px;border-radius:8px;white-space:pre-wrap;font-size:14px;}
-.success{color:#4caf50} .error{color:#f44336} .warn{color:#ff9800}
-</style>
+<script src="js/firebase.js"></script>
+<script src="js/products-data.js"></script>
 </head>
 <body>
-<h1>DEBUG - Firebase Upload</h1>
-<button id="uploadBtn">START DEBUG & UPLOAD</button>
-<div id="log">Waiting...</div>
-
+<h1>Upload 80 Products</h1>
+<button id="uploadBtn">Upload Now</button>
+<div id="status"></div>
 <script>
-// --- உங்க Firebase Config நேரடியா இங்கே ---
-const firebaseConfig = {
-  apiKey: "AIzaSyALuugPnsrMYx1yd5XlBBiksyQDUh4QpIU",
-  authDomain: "sivakasi-pattasu.firebaseapp.com",
-  databaseURL: "https://sivakasi-pattasu-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "sivakasi-pattasu",
-  storageBucket: "sivakasi-pattasu.firebasestorage.app",
-  messagingSenderId: "845385008418",
-  appId: "1:845385008418:web:91e23ffd820fff1dc7917b"
-};
-firebase.initializeApp(firebaseConfig);
-const logDiv = document.getElementById('log');
-function log(msg, type=''){
-  console.log(msg);
-  logDiv.innerHTML += `\n<span class="${type}">${msg}</span>`;
-}
-
-log("1. Firebase Initialized: " + firebaseConfig.databaseURL);
-
-// --- FAKE 2 PRODUCTS FOR TESTING ---
-// உங்க 80 products-க்கு பதிலா முதல்ல 2 products-அ test பண்ணுவோம்
-const testProducts = {
-  "1": { id: "1", name: "Test Crackers", price: 100, category: "test", image: "test.jpg" },
-  "2": { id: "2", name: "Test Sparklers", price: 200, category: "test", image: "test.jpg" }
-};
-
-document.getElementById("uploadBtn").addEventListener("click", async function(){
-  log("\n--- DEBUG STARTED ---");
-  
-  // Test 1: Firebase Connection
-  try {
-    log("2. Checking Database Connection...");
-    await firebase.database().ref(".info/connected").once('value').then(s=>{
-      log("   Connected: " + s.val(), s.val() ? "success" : "error");
-    });
-  } catch(e){ log("   Connection Error: "+e.message, "error"); }
-
-  // Test 2: Rules Check - Write Test
-  try {
-    log("3. Testing WRITE permission...");
-    await firebase.database().ref("debug_test").set({time: Date.now()});
-    log("   WRITE OK - Rules are correct", "success");
-    await firebase.database().ref("debug_test").remove();
-  } catch(e){
-    log("   WRITE FAILED: "+e.message, "error");
-    log("   FIX: Firebase Console > Realtime DB > Rules > {'.read':true,'.write':true} Publish பண்ணுங்க", "warn");
-    return;
-  }
-
-  // Test 3: Upload Test Products
-  try {
-    log("4. Uploading 2 Test Products to /products...");
-    await firebase.database().ref("products").set(testProducts);
-    log("   UPLOAD SUCCESS!", "success");
-  } catch(e){
-    log("   UPLOAD FAILED: "+e.message, "error");
-    return;
-  }
-
-  // Test 4: Read Back
-  try {
-    log("5. Reading back from /products...");
-    const snap = await firebase.database().ref("products").once('value');
-    const val = snap.val();
-    log("   Read Value: " + JSON.stringify(val).substring(0, 200) + "...", "success");
-    if(val === null){
-      log("   STILL NULL - Database empty", "error");
-    } else {
-      log("   ✅ Firebase 100% Working! இப்போ உங்க 80 products-அ upload பண்ணலாம்", "success");
+document.getElementById("uploadBtn").addEventListener("click", function(){
+    const status = document.getElementById("status");
+    if(typeof window.productsData === "undefined"){
+        status.innerHTML = "❌ products-data.js not loaded";
+        return;
     }
-  } catch(e){
-    log("   READ FAILED: "+e.message, "error");
-  }
+    status.innerHTML = "⏳ Uploading...";
+    // Object ஆக மாற்றுதல் - main fix
+    const obj = {};
+    window.productsData.forEach(p => { obj[p.id] = p; });
+    
+    firebase.database().ref("products").set(obj)
+    .then(()=> status.innerHTML = "✅ 80 Products Uploaded! products.html check பண்ணுங்க")
+    .catch(e=> status.innerHTML = "❌ "+e.message);
 });
 </script>
 </body>
