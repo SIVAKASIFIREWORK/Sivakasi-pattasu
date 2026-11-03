@@ -129,6 +129,5 @@
   { id: 128, name: '1/4 paper boam - Sky King', price: 50, originalPrice: 700, content: '1 Box', category: 'Fancy', image: 'images/128.jpg' },
   { id: 129, name: 'Lion King - Sark', price: 60, originalPrice: 510, content: '1 Box', category: 'Fancy', image: 'images/129.jpg' },
   { id: 130, name: 'Poondu Vedi - Snap Crackers', price: 10, originalPrice: 80, content: '1 Box - 50 Pcs', category: 'Kids Special', image: 'images/130.jpg' },
-  { id: 131, name: 'Dora singer', price: 135, originalPrice: 1
-   40, content: '1 Pack', category: 'Fancy', image: 'images/131.jpg' },
+  { id: 131, name: 'Dora singer', price: 135, originalPrice: 140, content: '1 Pack', category: 'Fancy', image: 'images/131.jpg' },
 ];
