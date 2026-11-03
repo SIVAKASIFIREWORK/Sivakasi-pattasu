@@ -38,7 +38,7 @@
   { id: 37, name: 'Chakkar Ashoka', price: 90, originalPrice: 410, content: '1 Box', category: 'Chakkar', image: 'images/37.jpg' },
   { id: 38, name: 'Rocket Small', price: 50, originalPrice: 155, content: '1 Box', category: 'Rocket', image: 'images/38.jpg' },
   { id: 39, name: 'Rocket Big', price: 80, originalPrice: 320, content: '1 Box', category: 'Rocket', image: 'images/39.jpg' },
-  { id: 40, name: '3 1/2 hulk', price: 35, originalPrice: 500, content: '1 Box', category: 'Rocket', image: 'images/40.jpg' },
+  { id: 40, name: 'Jug mug 3000 boam', price: 35, originalPrice: 500, content: '1 Box', category: 'Rocket', image: 'images/40.jpg' },
   { id: 41, name: '5 lion king', price: 60, originalPrice: 335, content: '1 Box', category: 'Rocket', image: 'images/41.jpg' },
   { id: 42, name: 'Lunik Rocket', price: 160, originalPrice: 620, content: '1 Box', category: 'Rocket', image: 'images/42.jpg' },
   { id: 43, name: '5 jallikattu', price: 80, originalPrice: 680, content: '1 Box', category: 'Fancy', image: 'images/43.jpg' },
